@@ -35,34 +35,37 @@ console.table(card);
 let cardToPrint = "";
 
 
-// Conditions for printing
+displayCard.innerHTML = generateTemplateToPrint(card);
 
-let isKindOf;
 
-if (card.kindOf) {
-    isKindOf = "- " + card.kindOf;
-} else {
-    isKindOf = "";
-}
+// FUNCTION DECLARATION
 
-let contentAbilities;
+function generateTemplateToPrint(card) {
 
-if (card.abilities.flavorText) {
+    // Conditions for printing
+
+    let isKindOf;
+
+    if (card.kindOf) {
+        isKindOf = "- " + card.kindOf;
+    } else {
+        isKindOf = "";
+    }
+
+    let contentAbilities;
+
     contentAbilities = `<ul>
-                            <li>Descrizione Abilità: ${card.abilities.description}</li>
-                            <li>Testo di Colore: ${card.abilities.flavorText}</li>
-                        </ul>                          
+<li>Descrizione Abilità: ${card.abilities.description}</li>                        
+`;
+
+    if (card.abilities.flavorText) {
+        contentAbilities += `
+                            <li>Testo di Colore: ${card.abilities.flavorText}</li>                      
                             `;
-} else {
-    contentAbilities = `<ul>
-                            <li>Descrizione Abilità: ${card.abilities.description}</li>
-                        </ul>                          
-    `;
-}
+    }
+    contentAbilities += `</ul>`
 
-cardToPrint =
-
-    `
+    cardToPrint = `
 <ul>
     <li class="list-group-item"> Nome Carta: ${card.nome}</li>
     <li class="list-group-item"> Costo di Evocazione: ${card.launchCost}</li>
@@ -87,6 +90,6 @@ cardToPrint =
         </ul>  
     </li>
 </ul>
-`
-
-displayCard.innerHTML = cardToPrint;
+`;
+    return cardToPrint;
+}
