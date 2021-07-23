@@ -165,7 +165,7 @@ let buttonFormElement = document.getElementById("button");
 
 buttonFormElement.addEventListener("click", () => {
 
-    // TODO rifare la parte relativa all'opzione selezionata e sparisce l'inputElement(d-none)
+    // TODO rifare selezione opzione e mi sparisce l'inputElement(d-none)
 
     /* selectElement.addEventListener("change", () => {
         inputElement.classList.remove("d-none");
@@ -186,50 +186,54 @@ buttonFormElement.addEventListener("click", () => {
 
     for (var i = 0; i < deck.length; i++) {
         let currentCard = deck[i];
-
-
-
         // Confronto con switch la presenza o meno dell'elementValue con le proprietà interne all'array di oggetti "DECK"
-        /* 
-                if (inputValue == currentCard[selectValue]) {
-                    console.log("ha funzionato");
-                }  */
-
-
-
         switch (selectValue) {
             case "nome":
-                if (inputValue == currentCard[selectValue]) {
+                if (currentCard[selectValue].includes(inputValue)) {
                     filteredCards.push(currentCard);
                 }
+                break;
+            case "typeOf":
+                if (currentCard[selectValue].includes(inputValue)) {
+                    filteredCards.push(currentCard);
+                }
+                break;
+            case "kindOf":
+                if (currentCard[selectValue].includes(inputValue)) {
+                    filteredCards.push(currentCard);
+                }
+                break;
             case "id":
-                if (inputValue == currentCard[selectValue]) {
+                if (parseInt(inputValue) === currentCard[selectValue]) {
                     console.log("HA FUNZIONATO");
                     filteredCards.push(currentCard);
                 }
+                break;
             case "launchCost":
                 if (currentCard[selectValue].includes(inputValue)) {
                     console.log("HA FUNZIONATO ARRAY");
                     filteredCards.push(currentCard);
                 }
+                break;
+            case "strenght":
+                if (parseInt(inputValue) === currentCard[selectValue]) {
+                    console.log("HA FUNZIONATO NUMERO");
+                    filteredCards.push(currentCard);
+                }
+                break;
+            case "constitucion":
+                if (parseInt(inputValue) === currentCard[selectValue]) {
+                    console.log("HA FUNZIONATO NUMERO");
+                    filteredCards.push(currentCard);
+                }
+                break;
+            case "backgroundCard":
+                if (currentCard[selectValue].includes(inputValue)) {
+                    filteredCards.push(currentCard);
+                }
+                break;
         }
         console.table(filteredCards);
         displayCard.innerHTML = generateDeckTemplate(filteredCards);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 });
