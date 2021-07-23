@@ -3,9 +3,18 @@
     margin: 0 auto;
 }
 
-#magic-card{
-    margin:50px
+
+#filter-section{
+    padding: 50px;
 }
+
+#magic-card{
+    margin:0 50px;
+}
+
+
+
+
 
 .img-container{
     width: 1000px;

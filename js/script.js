@@ -78,7 +78,7 @@ const deck = [{
     },
     illustration: {
         author: "James Ryman",
-        linkPic: "img/pic_test.jpg"
+        linkPic: "",
     },
     strenght: 3,
     constitucion: 4,
@@ -103,7 +103,7 @@ const deck = [{
     },
     illustration: {
         author: "Justyna Gil",
-        linkPic: "img/pic_2_test.jpg"
+        linkPic: "",
     },
     strenght: 2,
     constitucion: 3,
@@ -128,22 +128,18 @@ const deck = [{
     },
     illustration: {
         author: "Chris Ralles",
-        linkPic: "img/pic_3_test.jpg"
+        linkPic: "",
     },
     strenght: 4,
     constitucion: 4,
     backgroundCard: "beige",
 }]
 
-console.table(deck);
 
 
 // TO PRINT IN HTML
 
 let cardToPrint = "";
-
-/* displayCard.innerHTML = generateTemplateToPrint(card); */
-
 
 
 // TO PRINT ARRAY IN HTML
@@ -158,3 +154,81 @@ const generateDeckTemplate = (deck) => {
 }
 
 displayCard.innerHTML = generateDeckTemplate(deck);
+
+
+// GET ELEMENT FROM HTML FILTER FORM
+
+let selectElement = document.getElementById("select");
+let inputElement = document.getElementById("user-request");
+let buttonFormElement = document.getElementById("button");
+
+
+buttonFormElement.addEventListener("click", () => {
+
+    // TODO rifare la parte relativa all'opzione selezionata e sparisce l'inputElement(d-none)
+
+    /* selectElement.addEventListener("change", () => {
+        inputElement.classList.remove("d-none");
+    })
+    inputElement.classList.add("d-none"); */
+
+    // GET ELEMENT VALUE FROM INPUT
+    let selectValue = selectElement.value;
+    console.log(selectValue);
+    let inputValue = inputElement.value;
+    console.log(inputValue);
+
+    // FILTER LOGIC
+
+    let filteredCards = [];
+
+    // Ciclo for per girare in array principale di oggetti "DECK"
+
+    for (var i = 0; i < deck.length; i++) {
+        let currentCard = deck[i];
+
+
+
+        // Confronto con switch la presenza o meno dell'elementValue con le proprietà interne all'array di oggetti "DECK"
+        /* 
+                if (inputValue == currentCard[selectValue]) {
+                    console.log("ha funzionato");
+                }  */
+
+
+
+        switch (selectValue) {
+            case "nome":
+                if (inputValue == currentCard[selectValue]) {
+                    filteredCards.push(inputValue);
+                }
+            case "id":
+                if (inputValue == currentCard[selectValue]) {
+                    console.log("HA FUNZIONATO");
+                    filteredCards.push(inputValue);
+                }
+
+
+
+
+
+        }
+        console.table(filteredCards);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+});

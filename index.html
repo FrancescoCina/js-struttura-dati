@@ -12,7 +12,22 @@
 </head>
 
 <body>
-    <h1 class="m-3">Dettagli Carta Magic</h1>
+    <section id="filter-section">
+        <label for="select">Scegli la categoria di ricerca</label>
+        <select id="select">
+            <option selected value="all">Tutte</option>
+            <option value="id">ID</option>
+            <option value="nome">Nome</option>
+            <option value="typeOf">Card's Type </option>
+            <option value="kindOf">Card's Subtype</option>
+            <option value="strenght">Forza</option>
+            <option value="constitucion">Costituzione</option>
+            <option value="backgroundCard">Sfondo della Carta</option>
+        </select>
+        <input id="user-request" type="text" placeholder="Scrivi cosa stai cercando..">
+        <button id="button">Cerca</button>
+    </section>
+    <h3 class="m-3">Dettagli Carta Magic</h3>
     <section id="magic-card">
 
     </section>
