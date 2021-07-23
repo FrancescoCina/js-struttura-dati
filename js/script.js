@@ -200,20 +200,21 @@ buttonFormElement.addEventListener("click", () => {
         switch (selectValue) {
             case "nome":
                 if (inputValue == currentCard[selectValue]) {
-                    filteredCards.push(inputValue);
+                    filteredCards.push(currentCard);
                 }
             case "id":
                 if (inputValue == currentCard[selectValue]) {
                     console.log("HA FUNZIONATO");
-                    filteredCards.push(inputValue);
+                    filteredCards.push(currentCard);
                 }
-
-
-
-
-
+            case "launchCost":
+                if (currentCard[selectValue].includes(inputValue)) {
+                    console.log("HA FUNZIONATO ARRAY");
+                    filteredCards.push(currentCard);
+                }
         }
         console.table(filteredCards);
+        displayCard.innerHTML = generateDeckTemplate(filteredCards);
     }
 
 
