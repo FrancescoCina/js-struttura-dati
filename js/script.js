@@ -162,15 +162,19 @@ let selectElement = document.getElementById("select");
 let inputElement = document.getElementById("user-request");
 let buttonFormElement = document.getElementById("button");
 
+// FATTA SELEZIONE OPZIONE E CONSEGUENTE SCOMPARSA DI "inputElement" (d-none);
+
+selectElement.addEventListener("change", () => {
+    let currentElement = selectElement.value;
+    if (currentElement !== "all") {
+        inputElement.classList.remove("d-none");
+    } else {
+        inputElement.classList.add("d-none");
+    }
+});
 
 buttonFormElement.addEventListener("click", () => {
 
-    // TODO rifare selezione opzione e mi sparisce l'inputElement(d-none)
-
-    /* selectElement.addEventListener("change", () => {
-        inputElement.classList.remove("d-none");
-    })
-    inputElement.classList.add("d-none"); */
 
     // GET ELEMENT VALUE FROM INPUT
     let selectValue = selectElement.value;
@@ -188,6 +192,9 @@ buttonFormElement.addEventListener("click", () => {
         let currentCard = deck[i];
         // Confronto con switch la presenza o meno dell'elementValue con le proprietà interne all'array di oggetti "DECK"
         switch (selectValue) {
+            case "all":
+                filteredCards.push(currentCard);
+                break;
             case "nome":
                 if (currentCard[selectValue].includes(inputValue)) {
                     filteredCards.push(currentCard);
