@@ -196,46 +196,56 @@ buttonFormElement.addEventListener("click", () => {
                 filteredCards.push(currentCard);
                 break;
             case "nome":
-                if (currentCard[selectValue].includes(inputValue)) {
-                    filteredCards.push(currentCard);
-                }
-                break;
             case "typeOf":
-                if (currentCard[selectValue].includes(inputValue)) {
-                    filteredCards.push(currentCard);
-                }
-                break;
             case "kindOf":
+            case "launchCost":
+            case "backgroundCard":
                 if (currentCard[selectValue].includes(inputValue)) {
                     filteredCards.push(currentCard);
                 }
                 break;
             case "id":
-                if (parseInt(inputValue) === currentCard[selectValue]) {
-                    console.log("HA FUNZIONATO");
-                    filteredCards.push(currentCard);
-                }
-                break;
-            case "launchCost":
-                if (currentCard[selectValue].includes(inputValue)) {
-                    console.log("HA FUNZIONATO ARRAY");
-                    filteredCards.push(currentCard);
-                }
-                break;
             case "strenght":
-                if (parseInt(inputValue) === currentCard[selectValue]) {
-                    console.log("HA FUNZIONATO NUMERO");
-                    filteredCards.push(currentCard);
-                }
-                break;
             case "constitucion":
                 if (parseInt(inputValue) === currentCard[selectValue]) {
-                    console.log("HA FUNZIONATO NUMERO");
                     filteredCards.push(currentCard);
                 }
                 break;
-            case "backgroundCard":
-                if (currentCard[selectValue].includes(inputValue)) {
+            // CASI DEGLI OGGETTI "ESPANSIONE"
+            case "expansion-name":
+                if (currentCard.expansion.nameOfExpansion.includes(inputValue)) {
+                    filteredCards.push(currentCard);
+                }
+                break;
+            case "expansion-rarity":
+                if (currentCard.expansion.rarity.includes(inputValue)) {
+                    filteredCards.push(currentCard);
+                }
+                break;
+            case "expansion-reprint":
+                if (parseInt(inputValue) === currentCard.expansion.reprintId) {
+                    filteredCards.push(currentCard);
+                }
+                break;
+            case "expansion-collection-nr":
+                if (currentCard.expansion.collectionNr.includes(inputValue)) {
+                    filteredCards.push(currentCard);
+                }
+                break;
+            // CASE DEGLI OGGETTI "ABILITA'"
+            case "abilites-description":
+                if (currentCard.abilities.description.includes(inputValue)) {
+                    filteredCards.push(currentCard);
+                }
+                break;
+            case "abilities-flavor-text":
+                if (currentCard.abilities.flavorText.includes(inputValue)) {
+                    filteredCards.push(currentCard);
+                }
+                break;
+            // CASE DEGLI OGGETTI "ILLUSTRATION"
+            case "illustration-author":
+                if (currentCard.illustration.author.includes(inputValue)) {
                     filteredCards.push(currentCard);
                 }
                 break;
